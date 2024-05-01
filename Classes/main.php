@@ -6,7 +6,6 @@ require_once 'itemDoPedido.class.php';
 require_once 'batatinha.class.php';
 require_once 'cerveja.class.php';
 require_once 'refrigerante.class.php';
-
 // pega os dados do html e seta no endereco.class.php
 $e = new Endereco_class();
 $rua = $_POST['rua'];
@@ -68,6 +67,8 @@ $p->addItemDoPedidoCerveja($cJ);
 
 // Calcula o total do pedido
 $p->calcularTotal();
+$p->inserir();
+
 // Imprime o pedido
 $p->imprimir();
 ?>

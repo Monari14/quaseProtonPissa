@@ -203,4 +203,5 @@ input[type=radio] + label, input[type=checkbox] + label {
 .divi {
     background-color: white;
     border-radius: 50px;
+    padding: 20px;
 }
