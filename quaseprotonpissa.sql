@@ -45,20 +45,6 @@ CREATE TABLE `pedido` (
   `tamanho_refrigerante` varchar(255) DEFAULT NULL,
   `sabor_refrigerante` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Despejando dados para a tabela `pedido`
---
-
-INSERT INTO `pedido` (`ID_pedido`, `total`, `rua`, `bairro`, `cidade`, `nome_cliente`, `taxa_de_entrega`, `tamanho_pizza`, `sabor_pizza`, `borda_pizza`, `tamanho_batatinha`, `sabor_batatinha`, `tamanho_cerveja`, `sabor_cerveja`, `tamanho_refrigerante`, `sabor_refrigerante`) VALUES
-(1, 95, NULL, NULL, NULL, 'Arthur', 9, 'Magra', 'Java', 'CSS', 'Gorda', 'K9', 'Latão', 'Suco', 'Padrão', 'Dolly'),
-(2, 95, 'Rua boa', 'Periferia', 'Xique-Xique', 'Arthur', 9, 'Magra', 'Java', 'CSS', 'Gorda', 'K9', 'Latão', 'Suco', 'Padrão', 'Dolly'),
-(3, 107, 'Rua buceta', 'Periferia', 'Rolândia', 'Felipe Eduardo Monari', 9, 'Magra', 'HTML', 'Get e Set', 'Gorda', 'K9', 'Lata', 'Suco', 'Gigante', 'Dolly');
-
---
--- Índices para tabelas despejadas
---
-
 --
 -- Índices de tabela `pedido`
 --
