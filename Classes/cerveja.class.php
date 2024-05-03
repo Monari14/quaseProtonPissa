@@ -2,7 +2,9 @@
 require_once 'itemDoPedido.class.php';
 class Cerveja_class extends ItemDoPedido_class
 {
-    private $tamanho, $tipo;
+    private $tamanho, $tipo, $rangeCerveja;
+    public function setRangeCerveja($rangeCerveja) { $this->rangeCerveja = $rangeCerveja; } 
+    public function getRangeCerveja() { return $this->rangeCerveja; }  
     public function setTamanho($tamanho) { $this->tamanho = $tamanho; }
     public function getTamanhoCerveja() { return $this->tamanho; }
     public function setTipo($tipo) { $this->tipo = $tipo; }
@@ -12,22 +14,24 @@ class Cerveja_class extends ItemDoPedido_class
         $precoBase = 0;
         switch ($this->tamanho) 
         { 
-            case 'Lata': $precoBase = 9; break;
-            case 'Latica': $precoBase = 8; break;
-            case 'Latão': $precoBase = 8; break; 
+            case 'Latinha': $precoBase = 7; break;
+            case 'Lata': $precoBase = 11; break;
+            case 'Latão': $precoBase = 19; break; 
             case '-': $precoBase = 0; break; 
         }
         $precoTipo = 0;
         switch ($this->tipo) 
         {
-            case 'Mijo': $precoTipo = 5; break; 
-            case 'Suco': $precoTipo = 5; break; 
-            case 'Gatorade': $precoBase = 7; break; 
+            case 'Skol': $precoTipo = 6; break; 
+            case 'Brahma': $precoBase = 7; break; 
+            case 'Corona': $precoTipo = 8; break; 
             case '-': $precoBase = 0; break; 
         }
         $precoTotal = $precoBase + $precoTipo;
-        $this->setValor($precoTotal); 
-        return $precoTotal; 
+        $precoMaisNcervejas = $precoTotal * $this->getRangeCerveja();
+        $this->setValor($precoMaisNcervejas); 
+        return $precoMaisNcervejas; 
+
     }
 }
 ?>

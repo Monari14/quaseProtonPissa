@@ -1,127 +1,198 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Quaze Proton Pissa</title>
     <link rel="stylesheet" href="style.css">
 </head>
-<body><center>
-    <h1>Quaze Proton Pissa</h1>
-    <form action="Classes/main.php" method="post">
-        <h1>Endereço</h1>
-        <label for="rua">Rua: </label>
-        <input type="text" name="rua" id="rua">
-        <br>
-        <br>
-        <label for="bairo">Bairro</label>
-        <select name="bairo" id="bairo">
-            <option value="Centro">Centro</option>
-            <option value="Periferia">Periferia</option>
-            <option value="Mato">Mato</option>
-        </select>
-        <br>
-        <br>
-        <label for="cidade">Cidade: </label>
-        <select name="cidade" id="cidade">
-            <option value="Erechim">Erechim RS</option>
-            <option value="Rolândia">Rolândia</option>
-            <option value="Xique-Xique">Xique-Xique BAYA</option>
-        </select>        
-        <br>
-        <br>
 
-        <h1>Cliente</h1>
-        <label for="nome">Nome: </label>
-        <input type="text" name="nome" id="nome">
-         <h1>Pizza</h1>
+<body>
+    <center>
+        <h1>Quaze Proton Pissa</h1>
+        <form action="Classes/main.php" method="post">
+            <h1>Endereço</h1>
+            <label for="rua">Rua</label>
+            <input type="text" name="rua" id="rua">
+            <br>
+            <br>
+            <label for="bairo">Bairro</label>
+            <select name="bairo" id="bairo">
+                <option value="Centro">Centro</option>
+                <option value="Periferia">Periferia</option>
+                <option value="Mato">Mato</option>
+            </select>
+            <br>
+            <br>
+            <label for="cidade">Cidade</label>
+            <select name="cidade" id="cidade">
+                <option value="Erechim">Erechim RS</option>
+                <option value="Rolândia">Rolândia</option>
+                <option value="Xique-Xique">Xique-Xique BAYA</option>
+            </select>
+            <br>
+            <br>
 
-         <label for="tamanho">Tamanho</label>
-         <select name="tamanho" id="tamanho">
-            <option value="-">-------------------------------------------</option>
-             <option value="Magra">Magra</option>
-             <option value="Normal">Normal</option>
-             <option value="Gorda">Gorda</option>
-         </select>
-         <br>
-         <br>
-         <label for="sabor">Sabor: </label>
-         <select name="sabor" id="sabor">
-            <option value="-">-------------------------------------------</option>
-            <option value="Java">Java</option>
-            <option value="JavaScript">JavaScript</option>
-            <option value="PHP">PHP</option>
-            <option value="HTML">HTML</option>
-        </select>  
-         <br>
-         <br>
-         <label for="borda">Borda: </label>
-         <select name="borda" id="borda">
-            <option value="-">-------------------------------------------</option>
-            <option value="CSS">CSS</option>
-            <option value="Println">Println</option>
-            <option value="Get e Set">Get e Set</option>
-        </select>       
-          <h1>Batatinha</h1>
-        <label for="tamanhoB">Tamanho: </label>
-        <select name="tamanhoB" id="tamanhoB">
-           <option value="-">-------------------------------------------</option>
-           <option value="Magra">Magra</option>
-           <option value="Normal">Normal</option>
-           <option value="Gorda">Gorda</option>
-       </select>         
-       <label for="saborB">Sabor: </label>
-       <select name="saborB" id="saborB">
-          <option value="-">-------------------------------------------</option>
-          <option value="K9">K9</option>
-          <option value="Heroína">Heroína</option>
-          <option value="Cocaína">Cocaína</option>
-      </select>        
+            <h1>Cliente</h1>
+            <label for="nome">Nome</label>
+            <input type="text" name="nome" id="nome">
 
-      <h1>Cervejinha</h1>
-      
-      <label for="tamanhoC">Tamanho: </label>
-      <select name="tamanhoC" id="tamanhoC">
-         <option value="-">-------------------------------------------</option>
-         <option value="Lata">Lata</option>
-         <option value="Latica">Latica</option>
-         <option value="Latão">Latão</option>
-     </select>         
+            <h1>Pizza <input type="checkbox" name="verifyPizza" id="verifyPizza"></h1>
+            <div id="verifyPz" style="display: none;">
+                <label for="rangeRefrigerante">Quantas Pizzas?</label>
+                <input type="range" name="rangePizza" id="rangePizza" min="1" max="10" value="0"
+                    oninput="updatePizza(this.value)">
+                <div id="qntPizza" style="margin-top: -20px;">0</div>
+                <label for="tamanho">Tamanho</label>
+                <select name="tamanho" id="tamanho">
+                    <option value="-"></option>
+                    <option value="Magra">Magra R$20,00</option>
+                    <option value="Normal">Normal R$25,00</option>
+                    <option value="Gorda">Gorda R$30,00</option>
+                </select>
+                <br>
+                <br>
+                <label for="sabor">Sabor</label>
+                <select name="sabor" id="sabor">
+                    <option value="-"></option>
+                    <option value="Java">Java R$5,00</option>
+                    <option value="JavaScript">JavaScript R$8,00</option>
+                    <option value="PHP">PHP R$10,00</option>
+                    <option value="HTML">HTML R$11,00</option>
+                </select>
+                <br>
+                <br>
+                <label for="borda">Borda</label>
+                <select name="borda" id="borda">
+                    <option value="-"></option>
+                    <option value="CSS">CSS R$5,00</option>
+                    <option value="Println">Println R$4,00</option>
+                    <option value="Get e Set">Get e Set R$6,00</option>
+                </select>
+            </div>
+            <h1>Batatinha <input type="checkbox" name="verifyBatatinha" id="verifyBatatinha"></h1>
+            <div id="verifyBt" style="display: none;">
+                <label for="rangeBatatinha">Quantas Batatinhas?</label>
+                <input type="range" name="rangeBatatinha" id="rangeBatatinha" min="1" max="10" value="0"
+                    oninput="updateBatatinha(this.value)">
+                <div id="qntBatatinha" style="margin-top: -20px;">0</div>
+                <label for="tamanhoB">Tamanho</label>
+                <select name="tamanhoB" id="tamanhoB">
+                    <option value="-"></option>
+                    <option value="Magra">Magra R$10,00</option>
+                    <option value="Normal">Normal R$15,00</option>
+                    <option value="Gorda">Gorda R$25,00</option>
+                </select>
+                <label for="saborB">Sabor</label>
+                <select name="saborB" id="saborB">
+                    <option value="-"></option>
+                    <option value="Frita">Frita R$5,00</option>
+                    <option value="Assada">Assada R$10,00</option>
+                </select>
+            </div>
+            <h1>Cervejinha <input type="checkbox" name="verifyCerveja" id="verifyCerveja"></h1>
+            <div id="verifyCvj" style="display: none;">
+                <label for="rangeCerveja">Quantas Cervejas?</label>
+                <input type="range" name="rangeCerveja" id="rangeCerveja" min="1" max="10" value="0"
+                    oninput="updateCerveja(this.value)">
+                <div id="qntCerveja" style="margin-top: -20px;">0</div>
+                <label for="tamanhoC">Tamanho</label>
+                <select name="tamanhoC" id="tamanhoC">
+                    <option value="-"></option>
+                    <option value="Latinha">Latinha R$7,00</option>
+                    <option value="Lata">Lata R$11,00</option>
+                    <option value="Latão">Latão R$19,00</option>
+                </select>
+                <label for="saborC">Sabor</label>
+                <select name="saborC" id="saborC">
+                    <option value="-"></option>
+                    <option value="Skol">Skol R$6,00</option>
+                    <option value="Brahma">Brahma R$7,00</option>
+                    <option value="Corona">Corona R$8,00</option>
+                </select>
+            </div>
 
-     <label for="saborC">Sabor: </label>
-     <select name="saborC" id="saborC">
-        <option value="-">-------------------------------------------</option>
-        <option value="Mijo">Mijo</option>
-        <option value="Suco">Suco de laranja</option>
-        <option value="Gatorade">Gatorade</option>
-    </select>
+            <h1>Refrigerante <input type="checkbox" name="verifyRefri" id="verifyRefri"></h1>
 
-    <h1>Refrigerante</h1>
+            <div id="verifyRf" style="display: none;">
+                <label for="rangeRefrigerante">Quantos Refris?</label>
+                <input type="range" name="rangeRefrigerante" id="rangeRefrigerante" min="0" max="10" value="0"
+                    oninput="updateRefrigerante(this.value)">
+                <div id="qntRefrigerante" style="margin-top: -20px;">0</div>
+                <label for="tamanhoR">Tamanho</label>
+                <select name="tamanhoR" id="tamanhoR">
+                    <option value="-"></option>
+                    <option value="600ml">600ml R$6,00</option>
+                    <option value="1L">1L R$8,00</option>
+                    <option value="2L">2L R$12,00</option>
+                    <option value="3L">3L R$14,00</option>
+                </select>
 
-    <label for="tamanhoR">Tamanho: </label>
-    <select name="tamanhoR" id="tamanhoR">
-       <option value="-">-------------------------------------------</option>
-       <option value="Ticozinho">Ticozinho</option>
-       <option value="Padrão">Padrão</option>
-       <option value="Gigante">Gigante</option>
-   </select>         
+                <label for="saborR">Sabor</label>
+                <select name="saborR" id="saborR">
+                    <option value="-"></option>
+                    <option value="Coca-Cola">Coca-Cola R$10,00</option>
+                    <option value="Dolly">Dolly R$10,00</option>
+                    <option value="Guaraná">Guaraná R$10,00</option>
+                    <option value="Fanta">Fanta R$15,00</option>
+                </select>
+            </div>
+            <br>
+            <br>
+            <input type="submit" value="OK">
+        </form>
+    </center>
 
-   <label for="saborR">Sabor: </label>
-   <select name="saborR" id="saborR">
-      <option value="-">-------------------------------------------</option>
-      <option value="Coca">Coca</option>
-      <option value="Dolly">Dolly</option>
-      <option value="Água">Água</option>
-  </select>
+    <script>
+        function updatePizza(value) {
+            document.getElementById('qntPizza').textContent = value;
+        }
+        function updateBatatinha(value) {
+            document.getElementById('qntBatatinha').textContent = value;
+        }
+        function updateCerveja(value) {
+            document.getElementById('qntCerveja').textContent = value;
+        }
+        function updateRefrigerante(value) {
+            document.getElementById('qntRefrigerante').textContent = value;
+        }
 
-         <br>
-         <br>
-         <input type="submit" value="OK">
-    </form>
-</center>
+        document.getElementById('verifyPizza').addEventListener('change', function () {
+            if (this.checked) {
+                document.getElementById('verifyPz').style.display = 'block';
+            } else {
+                document.getElementById('verifyPz').style.display = 'none';
+            }
+        });
 
+        document.getElementById('verifyBatatinha').addEventListener('change', function () {
+            if (this.checked) {
+                document.getElementById('verifyBt').style.display = 'block';
+            } else {
+                document.getElementById('verifyBt').style.display = 'none';
+            }
+        });
 
+        document.getElementById('verifyCerveja').addEventListener('change', function () {
+            if (this.checked) {
+                document.getElementById('verifyCvj').style.display = 'block';
+            } else {
+                document.getElementById('verifyCvj').style.display = 'none';
+            }
+        });
+
+        document.getElementById('verifyRefri').addEventListener('change', function () {
+            if (this.checked) {
+                document.getElementById('verifyRf').style.display = 'block';
+            } else {
+                document.getElementById('verifyRf').style.display = 'none';
+            }
+        });
+
+    </script>
 </body>
+
 </html>
 
 
